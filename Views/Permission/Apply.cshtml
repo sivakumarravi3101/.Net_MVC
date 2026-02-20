@@ -1,22 +1,30 @@
 @using WebApplication1.DTOs
 @model ApplyPermissionRequestDto
 
-<div class="container mt-5" style="max-width:400px;">
-    <h3 class="text-center">Apply Permission</h3>
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
 
-    <form asp-action="Apply" method="post">
-        <div class="mb-3">
-            <label>Date</label>
-            <input asp-for="Date" type="date" class="form-control" />
-        </div>
+<div class="d-flex justify-content-center align-items-center" style="min-height:80vh;">
+    <div class="card shadow p-4" style="width:400px;">
+        <h4 class="text-center mb-4">Apply Permission</h4>
 
-        <div class="mb-3">
-            <label>Hours</label>
-            <input asp-for="Hours" type="number" class="form-control" />
-        </div>
+        <form asp-action="Apply" method="post">
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
-        <button type="submit" class="btn btn-primary w-100">
-            Submit
-        </button>
-    </form>
+            <div class="mb-3">
+                <label asp-for="Date" class="form-label"></label>
+                <input asp-for="Date" type="date" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Hours" class="form-label"></label>
+                <input asp-for="Hours" type="number" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Submit
+            </button>
+        </form>
+    </div>
 </div>

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace WebApplication1.Entities
 {
@@ -17,6 +18,10 @@ namespace WebApplication1.Entities
         public DateTime? LastLoggedIn { get; set; }
         [Column("created_at")]
         public DateTime CreatedAt { get; set; }
+        [Column("is_active")]
+        public bool IsActive { get; set; }
+        [Column("role")]
+        public string Role { get; set; }
 
         public ICollection<Permission> Permissions { get; set; }
     }

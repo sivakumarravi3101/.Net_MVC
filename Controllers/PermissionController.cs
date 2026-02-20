@@ -30,6 +30,22 @@ public class PermissionController : Controller
 
         await _permissionService.ApplyAsync(userId, request);
 
-        return RedirectToAction("Apply");
+        return RedirectToAction("List");
     }
+    [HttpGet]
+    public IActionResult ListPermission()
+    {
+        return View();
+    }
+    [HttpGet]
+    public async Task<IActionResult> List()
+    {
+        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var role = User.FindFirstValue(ClaimTypes.Role);
+
+        var permissions = await _permissionService.PermissionListAsync(userId, role);
+
+        return View(permissions);
+    }
+
 }

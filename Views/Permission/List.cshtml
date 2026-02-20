@@ -1,0 +1,56 @@
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@model List<WebApplication1.Entities.Permission>
+
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Permission List</h5>
+
+            <a asp-action="Apply" class="btn btn-light btn-sm">
+                + Apply New
+            </a>
+        </div>
+
+        <div class="card-body">
+
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info">
+                    No permissions found.
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Hours</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.User.Email</td>
+                                    <td>@item.PermissionDate.ToString("dd MMM yyyy")</td>
+                                    <td>@item.HoursOfPermission</td>
+                                    <td>@item.CreatedAt.ToString("dd MMM yyyy HH:mm")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>
