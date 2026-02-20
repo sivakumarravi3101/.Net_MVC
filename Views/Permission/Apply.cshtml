@@ -1,0 +1,22 @@
+@using WebApplication1.DTOs
+@model ApplyPermissionRequestDto
+
+<div class="container mt-5" style="max-width:400px;">
+    <h3 class="text-center">Apply Permission</h3>
+
+    <form asp-action="Apply" method="post">
+        <div class="mb-3">
+            <label>Date</label>
+            <input asp-for="Date" type="date" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Hours</label>
+            <input asp-for="Hours" type="number" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+            Submit
+        </button>
+    </form>
+</div>

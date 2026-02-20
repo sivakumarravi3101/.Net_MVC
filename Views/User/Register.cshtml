@@ -1,0 +1,19 @@
+@using WebApplication1.DTOs
+
+@model RegisterRequestDto
+
+<div class="container mt-5" style="max-width:400px;">
+    <h3 class="text-center">Register</h3>
+    <form asp-action="Register" method="post">
+        <div class="mb-3">
+            <input asp-for="Name" class="form-control" placeholder="UserName" />
+        </div>
+        <div class="mb-3">
+            <input asp-for="Email" class="form-control" placeholder="Email" />
+        </div>
+        <div class="mb-3">
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+</div>
