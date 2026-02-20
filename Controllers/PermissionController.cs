@@ -22,6 +22,10 @@ public class PermissionController : Controller
     [HttpPost]
     public async Task<IActionResult> Apply(ApplyPermissionRequestDto request)
     {
+        if (!ModelState.IsValid)
+        {
+            return View(request);
+        }
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
         await _permissionService.ApplyAsync(userId, request);

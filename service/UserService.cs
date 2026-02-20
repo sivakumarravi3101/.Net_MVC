@@ -31,7 +31,8 @@ public class UserService : IUserService
             return null;
         }
 
-
+        user.LastLoggedIn = DateTime.UtcNow;
+        _context.SaveChanges();
         return _mapper.Map<UserDto>(user);
     }
     public async Task<UserDto> RegisterAsync(RegisterRequestDto request)
